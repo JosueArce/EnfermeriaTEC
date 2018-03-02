@@ -1,0 +1,195 @@
+<div class="container-fluid" ng-init="load_data()">
+   <div class="card">
+       <div class="header">
+           <h3 class="card-title">Gestión Registros</h3>
+           <button class="btn btn-primary" data-toggle="modal" data-target="#modal_add_register">Nuevo Registro</button>
+       </div>
+       <div class="body" style="overflow: auto;height: 400px">
+            <table class="table table-hover table-bordered table-responsive">
+                <thead>
+                    <tr>
+                        <td><strong>Hora</strong></td>
+                        <td>Edad</td>
+                        <td>Frecuencia</td>
+                        <td>Posición</td>
+                        <td>Relación</td>
+                        <td>Referencia</td>
+                        <td>Sexo</td>
+                        <td>Acción</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat=" item in lista_registros">
+                        <td>{{item.hora}}</td>
+                        <td>{{item.edad}}</td>
+                        <td>{{item.frecuencia}}</td>
+                        <td>{{item.posicion}}</td>
+                        <td>{{item.relacion}}</td>
+                        <td>{{item.referencia}}</td>
+                        <td>{{item.sexo}}</td>
+                        <td>
+                            <a ng-click="open_modal_edit(item)" style="color: RED">EDITAR</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+       </div>
+       <div class="footer-a">
+            <h5 class=""></h5>
+       </div>
+   </div>
+</div>
+
+<!--START MODAL ADD REGISTER-->
+<div class="container-fluid">
+    <div class="modal fade" id="modal_add_register" tabindex="-1" role="dialog" aria-labelledby="modal_add_register" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Crear Nuevo Registro</h5>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="container-fluid">
+                                <label for="input_hora">Hora</label>
+                                <select class="form-control" ng-model="select_hora" id="input_hora" >
+                                    <option ng-repeat="item in lista_horas">{{item}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="input_edad">Edad</label>
+                            <input type="number" class="form-control" ng-model="input_edad" id="input_edad">
+                        </div>
+                        <div class="col-md-4">
+                            <label for="input_frecuencia">Frecuencia</label>
+                            <select class="form-control" ng-model="select_frecuencia" id="input_frecuencia" >
+                                <option>Primera Vez</option>
+                                <option>Subsecuente</option>
+                            </select>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <label for="input_Posición">Posición</label>
+                            <select class="form-control" ng-model="select_posicion" id="input_Posición" >
+                                <option>Estudiante</option>
+                                <option>Funcionario</option>
+                                <option>Ninguno</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="input_relacion">Relación</label>
+                            <select class="form-control" ng-model="select_relacion" id="input_relacion" >
+                                <option>Familiar</option>
+                                <option>Pensionado</option>
+                                <option>Ninguno</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="input_referencia">Referencia</label>
+                            <select class="form-control" ng-model="select_referencia" id="input_referencia" >
+                                <option>SI</option>
+                                <option>NO</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="input_sexo">Sexo</label>
+                            <select class="form-control" ng-model="select_sexo" id="input_sexo" >
+                                <option>Masculino</option>
+                                <option>Femenino</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary"  ng-click="new_register(select_hora,input_edad,select_frecuencia,select_posicion,select_relacion,select_referencia,select_sexo)"
+                            id="button_new_register">
+                        Aceptar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--END MODAL ADD REGISTER-->
+
+<!--START MODAL EDIT REGISTER-->
+<div class="container-fluid">
+    <div class="modal fade" id="modal_edit_register" tabindex="-1" role="dialog" aria-labelledby="modal_edit_register" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">EDITAR</h5>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="container-fluid">
+                                <label for="input_hora_edit">Hora</label>
+                                <select class="form-control" ng-model="edit_hora" id="input_hora_edit" >
+                                    <option ng-repeat="item in lista_horas">{{item}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="input_edad_edit">Edad</label>
+                            <input type="number" class="form-control" ng-model="edit_edad" id="input_edad_edit">
+                        </div>
+                        <div class="col-md-4">
+                            <label for="input_frecuencia_edit">Frecuencia</label>
+                            <select class="form-control" ng-model="edit_frecuencia" id="input_frecuencia_edit" >
+                                <option>Primera Vez</option>
+                                <option>Subsecuente</option>
+                            </select>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <label for="input_Posición_edit">Posición</label>
+                            <select class="form-control" ng-model="edit_posicion" id="input_Posición_edit" >
+                                <option>Estudiante</option>
+                                <option>Funcionario</option>
+                                <option>Ninguno</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="input_relacion_edit">Relación</label>
+                            <select class="form-control" ng-model="edit_relacion" id="input_relacion_edit" >
+                                <option>Familiar</option>
+                                <option>Pensionado</option>
+                                <option>Ninguno</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="input_referencia_edit">Referencia</label>
+                            <select class="form-control" ng-model="edit_referencia" id="input_referencia_edit" >
+                                <option>SI</option>
+                                <option>NO</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="input_sexo_edit">Sexo</label>
+                            <select class="form-control" ng-model="edit_sexo" id="input_sexo_edit" >
+                                <option>Masculino</option>
+                                <option>Femenino</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary"  ng-click="edit_information()"
+                            id="button_edit_register">
+                        Aceptar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--END MODAL EDIT REGISTER-->

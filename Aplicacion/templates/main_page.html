@@ -1,0 +1,324 @@
+﻿<!DOCTYPE html>
+<html ng-app="main_module">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <title>EnfermeriaTEC</title>
+    <!-- Favicon-->
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
+
+    <!-- Bootstrap Core Css -->
+    <link href="../plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Waves Effect Css -->
+    <link href="../plugins/node-waves/waves.css" rel="stylesheet" />
+
+    <!-- Animation Css -->
+    <link href="../plugins/animate-css/animate.css" rel="stylesheet" />
+
+    <!-- Preloader Css -->
+    <link href="../plugins/material-design-preloader/md-preloader.css" rel="stylesheet" />
+
+    <!-- Morris Chart Css-->
+    <link href="../plugins/morrisjs/morris.css" rel="stylesheet" />
+
+    <!-- Custom Css -->
+    <link href="../css/style.css" rel="stylesheet">
+
+    <!-- Colorpicker Css -->
+    <link href="../plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.css" rel="stylesheet" />
+
+    <!-- Dropzone Css -->
+    <link href="../plugins/dropzone/dropzone.css" rel="stylesheet">
+
+    <!-- Multi Select Css -->
+    <link href="../plugins/multi-select/css/multi-select.css" rel="stylesheet">
+
+    <!-- Bootstrap Spinner Css -->
+    <link href="../plugins/jquery-spinner/css/bootstrap-spinner.css" rel="stylesheet">
+
+    <!-- Bootstrap Tagsinput Css -->
+    <link href="../plugins/bootstrap-tagsinput/bootstrap-tagsinput.css" rel="stylesheet">
+
+    <!-- Bootstrap Select Css -->
+    <link href="../plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" />
+
+    <!-- noUISlider Css -->
+    <link href="../plugins/nouislider/nouislider.min.css" rel="stylesheet" />
+
+    <!--SWEET ALERT CSS-->
+    <link href="../plugins/sweetalert/sweetalert.css" rel="stylesheet" />
+
+
+    <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
+    <link href="../css/themes/all-themes.css" rel="stylesheet" />
+
+    <!-- TO PRINT PDF FILES FROM HTML DATA -->
+    <link rel="stylesheet" href="https://printjs-4de6.kxcdn.com/print.min.css">
+</head>
+
+<body class="theme-blue">
+    <!-- Page Loader -->
+    <div class="page-loader-wrapper">
+        <div class="loader">
+            <div class="md-preloader pl-size-md">
+                <svg viewbox="0 0 75 75">
+                    <circle cx="37.5" cy="37.5" r="33.5" class="pl-red" stroke-width="4" />
+                </svg>
+            </div>
+            <p>Cargando...</p>
+        </div>
+    </div>
+    <!-- #END# Page Loader -->
+    <!-- Overlay For Sidebars -->
+    <div class="overlay"></div>
+    <!-- #END# Overlay For Sidebars -->
+
+    <!-- Top Bar -->
+    <nav class="navbar" style="background-color: #000033"> 
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"></a>
+                <a href="javascript:void(0);" class="bars"></a>
+                
+                <a class="navbar-brand" href="main_page.html">EnfermeríaTEC</a>
+            </div>
+        </div>
+    </nav>
+    <!-- #Top Bar -->
+
+    <!-- Left Sidebar -->
+    <section>
+        <aside id="leftsidebar" class="sidebar">
+            <!-- User Info -->
+            <div class="user-info">
+                <div class="image">
+                    <img src="../images/user.png" width="48" height="48" alt="User" />
+                </div>
+                <div class="info-container">
+                    <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">ITCR Sede San Carlos</div>
+                    <div class="email">DEPARTAMENTO DEVESA</div>
+                    <div class="btn-group user-helper-dropdown">
+                        <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
+                        <ul class="dropdown-menu pull-right">
+                            <li><a href="#!/About"><i class="material-icons">person</i>Información</a></li>
+                            <li role="seperator" class="divider"></li>
+                            <li><a href="" onClick="location.href='../index.html'"><i class="material-icons">input</i>Salir</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- #User Info -->
+            <!-- Menu -->
+            <div class="menu">
+                <ul class="list">
+                    <li class="header">PANEL PRINCIPAL</li>
+                    <!--AUTOEVALUACIÓN-->
+                    <li>
+                        <a href="#!/Registros" class="active" onclick="closeSideBar()">
+                            <i class="material-icons">border_color</i>
+                            <span>Registros</span>
+                        </a>
+                    </li>
+                    <!--CYE_AJUSTADOS-->
+                    <li>
+                        <a href="#!/Graficas/Genero" class="menu-toggle">
+                            <i class="material-icons">&#xE6C4;</i>
+                            <span>Gráficas</span>
+                        </a>
+                        <ul class="ml-menu">
+                            <li>
+                                <a href="#!/Graficas/Genero" onclick="closeSideBar()">
+                                    <i class="material-icons">wc</i>
+                                    <span>Género</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#!/Graficas/Frecuencia" onclick="closeSideBar()">
+                                    <i class="material-icons">query_builder</i>
+                                    <span>Frecuencia</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#!/Graficas/CantidadCitas" onclick="closeSideBar()">
+                                    <i class="material-icons">event_note</i>
+                                    <span>Cantidad Citas</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!--EVIDENCIAS-->
+                    <li>
+                        <a href="#!/Reportes/TEC" class="menu-toggle">
+                            <i class="material-icons">print</i>
+                            <span>Reportes</span>
+                        </a>
+                        <ul class="ml-menu">
+                            <li>
+                                <a href="#!/Reportes/TEC" onclick="closeSideBar()">
+                                    <i class="material-icons">filter_1</i>
+                                    <span>TEC</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#!/Reportes/CCSS" onclick="closeSideBar()">
+                                    <i class="material-icons">filter_2</i>
+                                    <span>CCSS</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!--ABOUT-->
+                    <li>
+                        <a href="#!/About">
+                            <i class="material-icons col-light-blue">donut_large</i>
+                            <span>Acerca de</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <!-- #Menu -->
+            <!-- Footer -->
+            <div class="legal">
+                <div class="copyright">
+                    &copy; 2017 <a href="javascript:void(0);">EnfermeríaTEC <br> Departamento DEVESA</a>.
+                </div>
+                <div class="version">
+                    <b>Version: </b> 0.1
+                </div>
+            </div>
+            <!-- #Footer -->
+        </aside>
+        <!-- #END# Left Sidebar -->
+    </section>
+
+    <!--Ventanas emergentes-->
+    <section class="content">
+        <div class="container-fluid">
+            <!--<div class="block-header">
+                <h2>Criterios y Estándares</h2>
+            </div>-->
+            <div ng-view></div>
+        </div>
+    </section>
+    <!--END VENTANAS EMERGENTES-->
+
+
+    <!-- TO PRINT PDF FILES FROM HTML DATA -->
+    <script src="https://printjs-4de6.kxcdn.com/print.min.js"> </script>
+
+
+
+    <!-- Jquery Core Js -->
+    <script src="../plugins/jquery/jquery.min.js"></script>
+
+    <!--AngularJS File-->
+    <script src="../js/librerias/angular.min.js"></script>
+
+    <!--CHART JS-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
+
+    <!--AngularJS ngRoute Inyector File-->
+    <script src="../js/librerias/angular-route.min.js"></script>
+
+    <!--AngularJS localStorage CDN-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-local-storage/0.7.1/angular-local-storage.js"></script>
+
+    <!--NotifyJS-->
+    <script src="../js/librerias/notify.js"></script>
+
+
+
+    <!--Llamada del modulo APP.JS-->
+    <script src="../app.js"></script>
+    <script src="../Core/Factories/http_requests.js"></script>
+
+    <!--Llamada de todos los controllers-->
+    <script src="../Core/Controllers/mainPage_Controller.js"></script>
+    <script src="../Core/Controllers/Registros_Controller.js"></script>
+    <script src="../Core/Controllers/graficas_Controller.js"></script>
+    <script src="../Core/Controllers/reportes_CCSS_Controller.js"></script>
+    <script src="../Core/Controllers/reportes_TEC_Controller.js"></script>
+
+
+    <!-- Bootstrap Core Js -->
+    <script src="../plugins/bootstrap/js/bootstrap.js"></script>
+
+    <!-- Select Plugin Js -->
+    <script src="../plugins/bootstrap-select/js/bootstrap-select.js"></script>
+
+    <!-- Slimscroll Plugin Js -->
+    <script src="../plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
+
+    <!-- Waves Effect Plugin Js -->
+    <script src="../plugins/node-waves/waves.js"></script>
+
+    <!-- Jquery CountTo Plugin Js -->
+    <script src="../plugins/jquery-countto/jquery.countTo.js"></script>
+
+    <!-- Morris Plugin Js -->
+    <script src="../plugins/raphael/raphael.min.js"></script>
+    <script src="../plugins/morrisjs/morris.js"></script>
+
+    <!-- ChartJs -->
+    <!--<script src="plugins/chartjs/Chart.bundle.js"></script>-->
+
+    <!-- Flot Charts Plugin Js -->
+    <script src="../plugins/flot-charts/jquery.flot.js"></script>
+    <script src="../plugins/flot-charts/jquery.flot.resize.js"></script>
+    <script src="../plugins/flot-charts/jquery.flot.pie.js"></script>
+    <script src="../plugins/flot-charts/jquery.flot.categories.js"></script>
+    <script src="../plugins/flot-charts/jquery.flot.time.js"></script>
+
+    <!-- Sparkline Chart Plugin Js -->
+    <script src="../plugins/jquery-sparkline/jquery.sparkline.js"></script>
+
+    <!-- Custom Js -->
+    <script src="../js/admin.js"></script>
+    <!--<script src="js/pages/index.js"></script>-->
+
+    <!--Help JS-->
+    <script src="../js/helpers.js"></script>
+
+    <!-- Select Plugin Js -->
+    <script src="../plugins/bootstrap-select/js/bootstrap-select.js"></script>
+
+    <!-- Slimscroll Plugin Js -->
+    <script src="../plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
+
+    <!-- Dropzone Plugin Js -->
+    <script src="../plugins/dropzone/dropzone.js"></script>
+
+    <!-- Input Mask Plugin Js -->
+    <script src="../plugins/jquery-inputmask/jquery.inputmask.bundle.js"></script>
+
+    <!-- Multi Select Plugin Js -->
+    <script src="../plugins/multi-select/js/jquery.multi-select.js"></script>
+
+    <!-- Jquery Spinner Plugin Js -->
+    <script src="../plugins/jquery-spinner/js/jquery.spinner.js"></script>
+
+    <!-- Bootstrap Tags Input Plugin Js -->
+    <script src="../plugins/bootstrap-tagsinput/bootstrap-tagsinput.js"></script>
+
+    <!-- noUISlider Plugin Js -->
+    <script src="../plugins/nouislider/nouislider.js"></script>
+
+    <!-- Waves Effect Plugin Js -->
+    <script src="../plugins/node-waves/waves.js"></script>
+
+    <!--<script src="js/pages/forms/advanced-form-elements.js"></script>-->
+
+    <!--Sweet Alert JS-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+
+
+</body>
+
+</html>

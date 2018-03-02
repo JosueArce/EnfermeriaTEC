@@ -1,0 +1,39 @@
+<div  class="card" >
+    <div class="container-fluid" id="HTMLtoPDF">
+        <div class="header">
+            <div class="row">
+                <div class="col-md-4"></div>
+                <div class="col-md-4"></div>
+                <div class="col-md-4">
+                    <img style="width: 50%" src="../images/logo-tec.png" alt="Imagen TEC">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4"><h3>Reporte semestral destinado a la CCSS</h3></div>
+            </div>
+
+        </div>
+        <div class="body">
+            <div class="container-fluid" >
+
+                <table id="table_report_CCSS" class="table table-responsive table-bordered">
+                    <tr>
+                        <td width="25%">Primera vez</td>
+                        <td colspan="4">{{primera_vez}}</td>
+                    </tr>
+                    <tr>
+                        <td>Subsecuentes</td>
+                        <td colspan="4">{{subsecuente}}</td>
+                    </tr>
+                    <tr>
+                        <td>TOTAL</td>
+                        <td colspan="4">{{total_reporte_CCSS}}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+<a id="btn_create_report" class="btn btn-primary" onclick="printJS('HTMLtoPDF', 'html')">IMPRIMIR PDF</a>
+

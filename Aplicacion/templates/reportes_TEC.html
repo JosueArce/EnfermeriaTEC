@@ -1,0 +1,109 @@
+<div class="container-fluid card" >
+    <div class="container-fluid" id="HTMLtoPDF">
+        <div class="header">
+            <div class="row">
+                <div class="col-md-4"></div>
+                <div class="col-md-4"></div>
+                <div class="col-md-4">
+                    <img style="width: 50%" src="../images/logo-tec.png" alt="Imagen TEC">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-8"><h3>Reportes mensuales destinados al TEC</h3></div>
+            </div>
+
+        </div>
+        <div class="body">
+            <table class="table table-bordered table-responsive">
+                <caption>
+                    <b><br></b>
+                </caption>
+                <tr>
+                    <td rowspan="2"><strong>RANGOS DE EDAD</strong></td>
+                    <td colspan="2" style="text-align: center"><strong>TOTAL</strong></td>
+                </tr>
+                <tr>
+                    <td><strong>PRIMERA VEZ</strong></td>
+                    <td><strong>SUBSECUENTES</strong></td>
+                </tr>
+                <tr>
+                    <td>Menores de 28 años</td>
+                    <td>{{menor_28_primera_vez}}</td>
+                    <td>{{menor_28_subsecuente}}</td>
+
+                </tr>
+                <tr>
+                    <td>Menores de 1 año</td>
+                    <td>{{menor_1_primera_vez}}</td>
+                    <td>{{menor_1_subsecuente}}</td>
+                </tr>
+                <tr>
+                    <td>De 1 a 4 años</td>
+                    <td>{{entre_1y4_primera_vez}}</td>
+                    <td>{{entre_1y4_subsecuente}}</td>
+                </tr>
+                <tr>
+                    <td>De 5 a 9 años</td>
+                    <td>{{entre_5y9_primera_vez}}</td>
+                    <td>{{entre_5y9_subsecuente}}</td>
+                </tr>
+                <tr>
+                    <td>De 10 a 19 años</td>
+                    <td>{{entre_10y19_primera_vez}}</td>
+                    <td>{{entre_10y19_subsecuente}}</td>
+                </tr>
+                <tr>
+                    <td>De 20 a 64 años</td>
+                    <td>{{entre_20y64_primera_vez}}</td>
+                    <td>{{entre_20y64_subsecuente}}</td>
+                </tr>
+                <tr>
+                    <td>De 65 y más años</td>
+                    <td>{{mayor_65_primera_vez}}</td>
+                    <td>{{mayor_65_subsecuente}}</td>
+                </tr>
+                <tr>
+                    <td>TOTAL</td>
+                    <td>{{total_primera_vez}}</td>
+                    <td>{{total_subsecuente}}</td>
+                </tr>
+
+            </table>
+        </div>
+        <div class="footer-a">
+            <footer>
+
+                <table class="table table-responsive table-bordered">
+                    <caption><br></caption>
+                    <tr>
+                        <th></th>
+                        <th>Cantidad de consultas</th>
+                    </tr>
+                    <tr>
+                        <td>PAP de 20 a menos de 34 años</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>PAP de 35 y más</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Prenatales</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Post Parto</td>
+                        <td></td>
+                    </tr>
+                </table>
+                <p><br></p>
+            </footer>
+        </div>
+    </div>
+
+
+
+
+
+</div>
+<a class="btn btn-primary" id="btn_create_report" onclick="printJS('HTMLtoPDF', 'html')">IMPRIMIR PDF</a>
